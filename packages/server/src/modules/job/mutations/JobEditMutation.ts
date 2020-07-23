@@ -46,7 +46,7 @@ export default mutationWithClientMutationId({
   name: 'JobEdit',
   inputFields: {
     id: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
     },
     job: {
       type: new GraphQLNonNull(EditJobInput),
