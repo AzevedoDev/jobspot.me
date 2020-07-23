@@ -24,6 +24,10 @@ const JobTypeConfig: ConfigType = {
       type: GraphQLString,
       resolve: job => job.title,
     },
+    description: {
+      type: GraphQLString,
+      resolve: job => job.description,
+    },
     seniority: {
       type: GraphQLString,
       resolve: job => job.seniority,

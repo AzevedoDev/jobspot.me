@@ -16,6 +16,8 @@ export default class Job {
 
   title: string;
 
+  description: string;
+
   seniority: string;
 
   salary: number;
@@ -24,6 +26,7 @@ export default class Job {
     this.id = data.id || data._id;
     this._id = data._id;
     this.title = data.title;
+    this.description = data.description;
     this.salary = data.salary;
     this.seniority = data.seniority;
   }

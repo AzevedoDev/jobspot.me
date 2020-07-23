@@ -7,6 +7,11 @@ const Schema = new mongoose.Schema(
       description: 'Job Title',
       required: true,
     },
+    description: {
+      type: String,
+      description: 'Job description',
+      required: true,
+    },
     seniority: {
       type: String,
       description: 'Job seniority (entry-level, junior, mid-level and senior)',
@@ -33,6 +38,7 @@ Schema.index({ seniority: 'text', salary: 'number' });
 
 export interface IJob extends Document {
   title: string;
+  description: string;
   seniority: string;
   salary: number;
 }
