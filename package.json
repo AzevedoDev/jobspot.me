@@ -1,0 +1,19 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "server:dev": "yarn workspace @jobspot/server dev"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.7",
+    "@jobspot/eslint-config": "*"
+  }
+}
