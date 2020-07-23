@@ -4,6 +4,8 @@ import graphqlHTTP from 'koa-graphql';
 import cors from '@koa/cors';
 
 import schema from './graphql/schema';
+import { getDataloaders } from './loader/helper';
+import loaders from './loader';
 
 const serverSettings = async (req: Koa.Request) => {
   // const token = req.headers.authorization;
@@ -12,6 +14,9 @@ const serverSettings = async (req: Koa.Request) => {
   return {
     graphiql: process.env.NODE_ENV !== 'production',
     schema,
+    context: {
+      dataloaders: getDataloaders(loaders),
+    },
   };
 };
 
