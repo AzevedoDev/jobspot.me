@@ -1,10 +1,8 @@
-import createServer from './server';
+import server from './server';
+import connectDatabase from './common/database';
 
 (async () => {
-  // const db = createDatabase();
-  // await db.connect();
-
-  const server = createServer();
+  await connectDatabase();
 
   server.listen(4000, () => {
     // eslint-disable-next-line no-console

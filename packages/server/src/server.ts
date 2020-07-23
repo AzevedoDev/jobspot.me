@@ -1,4 +1,4 @@
-import Koa from 'koa';
+import Koa, { Context } from 'koa';
 import mount from 'koa-mount';
 import graphqlHTTP from 'koa-graphql';
 import cors from '@koa/cors';
@@ -17,18 +17,15 @@ const serverSettings = async (req: Koa.Request) => {
 
 const graphqlServer = graphqlHTTP(serverSettings);
 
-const createServer = () => {
-  const server = new Koa();
+const server = new Koa<any, Context>();
 
-  server.use(cors());
+server.use(cors());
 
-  server.on('error', err => {
-    console.log('Server error', err);
-  });
+server.on('error', err => {
+  // eslint-disable-next-line no-console
+  console.log('Server error', err);
+});
 
-  server.use(mount('/graphql', graphqlServer));
+server.use(mount('/graphql', graphqlServer));
 
-  return server;
-};
-
-export default createServer;
+export default server;

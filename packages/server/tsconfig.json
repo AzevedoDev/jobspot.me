@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "rootDir": "src",
-    "composite": true,
     "noEmit": true,
   },
   "exclude": [
