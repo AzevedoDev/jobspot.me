@@ -1,6 +1,3 @@
-# Koa + GraphQL + Relay + Typescript
+# Jobspot.me
 
-## Todo:
-
-- Build for the server
-- A GraphQL package to share files across packages
+> Minimalistic app to display job positions
