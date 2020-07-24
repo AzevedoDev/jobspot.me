@@ -1,8 +1,63 @@
-# Jobspot.me Server
+# Jobspot Server
 
-### Mutations
+## Mutations
 
-## Create
+### Create a user
+
+```graphql
+  mutation CreateUser($UserRegister: UserRegisterWithEmailInput!) {
+    UserRegisterWithEmail(input: $UserRegister) {
+      me {
+        name
+        email
+      }
+      token
+      error
+      success
+    }
+  }
+```
+
+variables:
+
+```json
+{
+  "UserRegister": {
+    "name": "jonathan",
+    "email": "jonathan@galdino.dev",
+    "password": "jonathan"
+  },
+}
+```
+
+### Login
+
+```graphql
+mutation LoginWithEmail($LoginWithEmail: UserLoginWithEmailInput!) {
+  UserLoginWithEmail(input: $LoginWithEmail) {
+    me {
+      name
+      email
+    }
+    token
+    error
+  }
+}
+```
+
+variables:
+
+```json
+{
+  "LoginWithEmail": {
+    "email": "jonathan@galdino.dev",
+    "password": "jonathan"
+  }
+}
+```
+
+
+### Create a Job
 
 ```graphql
   mutation CreateJob($AddJobInput:JobAddInput!) {
@@ -33,7 +88,7 @@ Variables:
 ```
 
 
-## Update
+### Update a Job
 
 
 ```graphql
@@ -65,4 +120,15 @@ Variables:
     }
   }
 }
+```
+
+### Delete a job
+
+```graphql
+  mutation DeleteJob {
+    JobDeleteMutation(input: { id: "5f1a05deba51702a9456c8d6" }) {
+      success
+      error
+    }
+  }
 ```
