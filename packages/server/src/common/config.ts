@@ -13,3 +13,4 @@ dotenvSafe.config({
 });
 
 export const MONGO_URL = envVar.get('MONGO_URL').required().asString();
+export const SECRET = envVar.get('SECRET').required().asString();
