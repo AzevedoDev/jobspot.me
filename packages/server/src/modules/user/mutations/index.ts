@@ -1,3 +1,4 @@
 import UserRegisterWithEmail from './UserRegisterWithEmail';
+import UserLoginWithEmail from './UserLoginWithEmail';
 
-export default { UserRegisterWithEmail };
+export default { UserRegisterWithEmail, UserLoginWithEmail };
