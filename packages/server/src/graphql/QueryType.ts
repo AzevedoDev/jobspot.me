@@ -1,7 +1,7 @@
-import { GraphQLObjectType, GraphQLNonNull } from 'graphql';
+import { GraphQLObjectType, GraphQLNonNull, GraphQLString } from 'graphql';
 import { NodeField } from '../modules/node/NodeInterface';
 
-import { JobConnection } from '../modules/job/JobType';
+import JobType, { JobConnection } from '../modules/job/JobType';
 import * as JobLoader from '../modules/job/JobLoader';
 
 const QueryType = new GraphQLObjectType({
@@ -12,6 +12,15 @@ const QueryType = new GraphQLObjectType({
     jobs: {
       type: GraphQLNonNull(JobConnection.connectionType),
       resolve: async (_, args, context) => JobLoader.loadJobs(context, args),
+    },
+    job: {
+      type: GraphQLNonNull(JobType),
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLString),
+        },
+      },
+      resolve: async (_, { id }, context) => JobLoader.load(context, id),
     },
   }),
 });
