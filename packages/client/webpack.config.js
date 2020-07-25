@@ -2,6 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
+3;
+const RelayCompilerWebpackPlugin = require('relay-compiler-webpack-plugin');
+
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -51,6 +54,10 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
+    new RelayCompilerWebpackPlugin({
+      schema: path.resolve(__dirname, '..', 'graphql', 'schema.graphql'),
+      src: path.resolve(__dirname, 'src'),
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
     }),
