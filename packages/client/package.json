@@ -20,6 +20,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.3.3",
     "@types/styled-components": "^5.1.1",
     "babel-loader": "^8.1.0",
+    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "react-refresh": "^0.8.3",
     "webpack": "^4.43.0",

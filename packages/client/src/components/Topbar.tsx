@@ -31,6 +31,7 @@ const Wrapper = styled.div`
   align-items: center;
   padding-left: 35px;
   padding-right: 35px;
+  border-bottom: 1px solid #e4e4e4;
 `;
 
 const IconWrapper = styled.div`

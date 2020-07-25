@@ -54,7 +54,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: #16202c;
+    background: #ffffff;
     line-height: 1;
     font-size: 100%;
     font-family: Yu Gothic UI;

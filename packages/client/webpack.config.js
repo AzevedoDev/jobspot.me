@@ -26,6 +26,18 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(jpg|png|gif|svg|ttf|woff(2)?)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'img/',
+            },
+          },
+        ],
+      },
     ],
   },
   devServer: {

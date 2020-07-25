@@ -21,12 +21,14 @@ const Wrapper = styled.section`
   display: flex;
 
   background: #f3f3f3;
+  height: 100%;
 `;
 
 const Main = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  padding-bottom: 50px;
 `;
 
 const Content = styled.div`

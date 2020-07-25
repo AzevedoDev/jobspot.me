@@ -2,13 +2,14 @@ import React from 'react';
 
 import Layout from './components/Layout';
 import GlobalStyles from './styles/global';
+import Jobs from './components/Jobs';
 
 const App: React.FC = () => {
   return (
     <>
       <GlobalStyles />
       <Layout>
-        <h1>Hello World</h1>
+        <Jobs />
       </Layout>
     </>
   );
