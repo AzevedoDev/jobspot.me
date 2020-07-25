@@ -26,7 +26,8 @@ module.exports = {
     "import/prefer-default-export": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "react/prop-types": "off"
   },
   settings: {
     "import/resolver": {

@@ -10,7 +10,8 @@
     ]
   },
   "scripts": {
-    "server:dev": "yarn workspace @jobspot/server dev"
+    "server:dev": "yarn workspace @jobspot/server dev",
+    "client:dev": "yarn workspace @jobspot/client start"
   },
   "devDependencies": {
     "typescript": "^3.9.7",
