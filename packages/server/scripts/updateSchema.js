@@ -3,11 +3,12 @@ import path from 'path';
 import { promisify } from 'util';
 
 import { graphql } from 'graphql';
-import { introspectionQuery, printSchema } from 'graphql/utilities';
+import { printSchema, getIntrospectionQuery } from 'graphql/utilities';
 
 import schemaGraphql from '../src/graphql/schema';
 
 const writeFileAsync = promisify(fs.writeFile);
+const introspectionQuery = getIntrospectionQuery({ descriptions: true });
 
 const generateSchema = async (schema, relativePath) => {
   const result = await graphql(schema, introspectionQuery);
@@ -16,6 +17,7 @@ const generateSchema = async (schema, relativePath) => {
     // eslint-disable-next-line
     console.error('ERROR introspecting schema: ', JSON.stringify(result.errors, null, 2));
   } else {
+    console.log('Schema was successfully instrospected');
     await writeFileAsync(
       path.join(__dirname, `${relativePath}/schema.json`),
       JSON.stringify(result, null, 2),
