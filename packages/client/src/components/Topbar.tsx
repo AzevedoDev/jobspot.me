@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useContext, useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { SearchAlt } from '@styled-icons/boxicons-regular/SearchAlt';
+import { useSearch } from '../contexts/searchContext';
 
 const Topbar: React.FC = () => {
+  const [text, setText] = useState<string>('');
+
+  const { searchFor } = useSearch();
+
+  const triggerSearch = useCallback(() => {
+    searchFor(text);
+  }, [text, searchFor]);
+
   return (
     <Wrapper>
       <InputWrapper>
         <IconWrapper>
           <SearchAlt />
         </IconWrapper>
-        <input type="text" placeholder="Search a job" />
+        <input
+          type="text"
+          placeholder="Search a job"
+          value={text}
+          onChange={e => setText(e.target.value)}
+        />
 
-        <button type="button">Search</button>
+        <button type="button" onClick={triggerSearch}>
+          Search
+        </button>
       </InputWrapper>
     </Wrapper>
   );
