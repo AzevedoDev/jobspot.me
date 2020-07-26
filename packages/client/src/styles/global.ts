@@ -60,6 +60,10 @@ export default createGlobalStyle`
     font-family: Yu Gothic UI;
   }
 
+  html, body {
+  height: 100%;
+}
+
   button {
     cursor: pointer;
   }
