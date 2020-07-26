@@ -1,4 +1,7 @@
+const { workspaces = [] } = require('./package.json');
+
 module.exports = {
+  babelrcRoots: ['.', ...(workspaces.packages || workspaces)],
   presets: [
     [
       '@babel/preset-env',
@@ -6,18 +9,11 @@ module.exports = {
         targets: {
           node: 'current',
         },
+        useBuiltIns: 'entry',
+        corejs: 3,
       },
     ],
     '@babel/preset-typescript',
   ],
   plugins: [],
-  env: {
-    test: {
-      presets: [
-        ['@babel/preset-env', { targets: { node: 'current' } }],
-        '@babel/preset-typescript',
-      ],
-      plugins: [],
-    },
-  },
 };

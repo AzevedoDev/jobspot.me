@@ -4,7 +4,8 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore node_modules src/app.ts",
-    "update-schema": "babel-node --extensions \".ts\" scripts/updateSchema.js"
+    "copy-to-package": "babel-node --extensions \".es6,.js,.jsx,.ts,.tsx\" scripts/copySchemaToPackage.js",
+    "update-schema": "babel-node --extensions \".es6,.js,.jsx,.ts,.tsx\" scripts/updateSchema.js && yarn copy-to-package"
   },
   "license": "MIT",
   "dependencies": {

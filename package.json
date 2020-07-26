@@ -11,7 +11,8 @@
   },
   "scripts": {
     "server:dev": "yarn workspace @jobspot/server dev",
-    "client:dev": "yarn workspace @jobspot/client start"
+    "client:dev": "yarn workspace @jobspot/client start",
+    "update-schema": "yarn workspace @jobspot/server update-schema"
   },
   "devDependencies": {
     "typescript": "^3.9.7",

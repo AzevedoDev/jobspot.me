@@ -1,11 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "module": "esnext",
     "noEmit": true,
+    "jsx": "react",
+    "lib": [
+      "ESNext",
+      "dom",
+      "DOM.Iterable"
+    ],
+    "baseUrl": "./",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true, 
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": ["node_modules", "build"]
 }
