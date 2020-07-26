@@ -4,17 +4,17 @@ import styled from 'styled-components';
 
 import { Location } from '@styled-icons/entypo/Location';
 import { DeleteBin } from '@styled-icons/remix-line/DeleteBin';
+import { createFragmentContainer, graphql } from 'react-relay';
 import Image from '../assets/JobImage.svg';
 import { useModal } from '../contexts/modalContext';
 
+import { Job_job } from './__generated__/Job_job.graphql';
+
 interface Props {
-  jobId: string;
-  title: string;
-  company: string;
-  location: string;
+  job: Job_job;
 }
 
-const Job: React.FC = () => {
+const Job: React.FC<Props> = ({ job }) => {
   const { open } = useModal();
 
   const handleDelete = useCallback(() => {
@@ -31,14 +31,14 @@ const Job: React.FC = () => {
             </DeleteButton>
             <img src={Image} alt="job" />
           </div>
-          <h3>UX Lead and Researcher</h3>
+          <h3>{job.title}</h3>
         </Title>
 
         <CompanyDetails>
-          <p>Globex Corporation Pvt. Ltd</p>
+          <p>{job.company}</p>
           <small>
             <Location />
-            Los Angeles, California, USA
+            {job.location}
           </small>
         </CompanyDetails>
       </Content>
@@ -51,7 +51,20 @@ const Job: React.FC = () => {
   );
 };
 
-export default Job;
+const JobFrament = createFragmentContainer(Job, {
+  job: graphql`
+    fragment Job_job on Job {
+      _id
+      title
+      company
+      location
+      salary
+      seniority
+    }
+  `,
+});
+
+export default JobFrament;
 
 const Wrapper = styled.section`
   width: 290px;

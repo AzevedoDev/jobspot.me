@@ -29,7 +29,8 @@ module.exports = {
     "no-underscore-dangle": "off",
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
-    "@typescript-eslint/no-var-requires": "off"
+    "@typescript-eslint/no-var-requires": "off",
+    "camelcase": "off"
   },
   settings: {
     "import/resolver": {

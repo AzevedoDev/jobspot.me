@@ -1,7 +1,3 @@
-module.exports = {
-  presets: [
-    '@babel/preset-env',
-    '@babel/preset-react',
-    '@babel/preset-typescript',
-  ],
-};
+const config = require('@jobspot/babel');
+
+module.exports = config;

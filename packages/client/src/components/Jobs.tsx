@@ -1,8 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import { createFragmentContainer, graphql } from 'react-relay';
 import Job from './Job';
+import { createQueryRenderer } from '../relay';
 
-const Jobs: React.FC = () => {
+import { Jobs_data } from './__generated__/Jobs_data.graphql';
+
+interface Props {
+  data: Jobs_data;
+}
+
+const Jobs: React.FC<Props> = ({ data }) => {
+  const jobs = data.jobs.edges;
+
   return (
     <Wrapper>
       <Description>
@@ -11,53 +21,43 @@ const Jobs: React.FC = () => {
       </Description>
 
       <List>
-        <Job />
-        <Job />
-        <Job />
-        <Job />
-        <Job />
-        <Job />
-        <Job />
-        <Job />
-        <Job />
+        {jobs.map(({ node }) => (
+          <Job key={node.id} job={node} />
+        ))}
       </List>
     </Wrapper>
   );
 };
 
-// const JobsFragment = createFragmentContainer(Jobs, {
-//   jobs: graphql`
-//     fragment Jobs_jobs on Query {
-//       jobs {
-//         edges {
-//           node {
-//             id
-//             _id
-//             title
-//           }
-//         }
-//       }
-//     }
-//   `,
-// });
+const JobsFragment = createFragmentContainer(Jobs, {
+  data: graphql`
+    fragment Jobs_data on Query {
+      jobs {
+        edges {
+          node {
+            id
+            ...Job_job
+          }
+        }
+      }
+    }
+  `,
+});
 
-// const JobsQueryRenderer = createQueryRenderer(
-//   JobsFragment,
-//   {},
-//   {
-//     query: graphql`
-//       query JobsQuery {
-//         ...Jobs_jobs
-//       }
-//     `,
-//     getFragmentProps: props => {
-//       console.log('props', props);
-//       return { jobs: props };
-//     },
-//   },
-// );
+const JobsQueryRenderer = createQueryRenderer(JobsFragment, {
+  query: graphql`
+    query JobsQuery {
+      ...Jobs_data
+    }
+  `,
+  getFragmentProps: props => {
+    return {
+      data: props,
+    };
+  },
+});
 
-export default Jobs;
+export default JobsQueryRenderer;
 
 const Wrapper = styled.section``;
 

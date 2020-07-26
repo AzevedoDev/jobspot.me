@@ -8,6 +8,7 @@
     "relay": "relay-compiler"
   },
   "dependencies": {
+    "core-js": "^3.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-relay": "^10.0.1",
@@ -16,17 +17,19 @@
     "styled-icons": "^10.11.0"
   },
   "devDependencies": {
+    "@jobspot/babel": "*",
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.3.3",
+    "@types/react-dom": "^16.9.8",
     "@types/react-relay": "^7.0.8",
     "@types/relay-runtime": "^10.0.1",
     "@types/styled-components": "^5.1.1",
     "babel-loader": "^8.1.0",
     "file-loader": "^6.0.0",
-    "graphql": "^15.3.0",
+    "graphql": "^14.5.8",
     "html-webpack-plugin": "^4.3.0",
     "react-refresh": "^0.8.3",
     "relay-compiler": "^10.0.1",

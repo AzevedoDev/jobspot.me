@@ -10,7 +10,7 @@ const App: React.FC = () => {
   return (
     <ContextProvider>
       <GlobalStyles />
-      <JobModal />
+      <JobModal type="job-details" />
       <Layout>
         <Jobs />
       </Layout>

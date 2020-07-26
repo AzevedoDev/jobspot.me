@@ -14,18 +14,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: require.resolve('babel-loader'),
-            options: {
-              plugins: [
-                isDevelopment && require.resolve('react-refresh/babel'),
-              ].filter(Boolean),
-            },
-          },
-        ],
+        test: /\.(js|jsx|ts|tsx)?$/,
+        use: {
+          loader: 'babel-loader',
+        },
+        exclude: [/node_modules/],
       },
       {
         test: /\.(jpg|png|gif|svg|ttf|woff(2)?)$/i,
