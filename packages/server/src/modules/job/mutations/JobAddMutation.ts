@@ -11,6 +11,8 @@ interface JobAddArgs {
   title: string;
   seniority: string;
   description: string;
+  company: string;
+  location: string;
   salary: number;
 }
 
@@ -26,17 +28,25 @@ export default mutationWithClientMutationId({
     description: {
       type: GraphQLNonNull(GraphQLString),
     },
+    company: {
+      type: GraphQLNonNull(GraphQLString),
+    },
+    location: {
+      type: GraphQLNonNull(GraphQLString),
+    },
     salary: {
       type: GraphQLNonNull(GraphQLInt),
     },
   },
   mutateAndGetPayload: async (args: JobAddArgs) => {
-    const { title, seniority, description, salary } = args;
+    const { title, seniority, description, salary, location, company } = args;
 
     const newJob = await new Job({
       title,
       seniority,
       description,
+      location,
+      company,
       salary,
     }).save();
 

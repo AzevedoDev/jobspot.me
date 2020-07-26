@@ -4,7 +4,6 @@ import {
   GraphQLNonNull,
   GraphQLString,
   GraphQLInt,
-  GraphQLObjectType,
   GraphQLInputObjectType,
 } from 'graphql';
 
@@ -20,6 +19,8 @@ interface JobEditArgs {
     title?: string;
     seniority?: string;
     description?: string;
+    location?: string;
+    company?: string;
     salary?: number;
   };
 }
@@ -34,6 +35,12 @@ const EditJobInput = new GraphQLInputObjectType({
       type: GraphQLString,
     },
     description: {
+      type: GraphQLString,
+    },
+    location: {
+      type: GraphQLString,
+    },
+    company: {
       type: GraphQLString,
     },
     salary: {
@@ -79,6 +86,14 @@ export default mutationWithClientMutationId({
 
     if (job.description) {
       jobInDb.description = job.description;
+    }
+
+    if (job.company) {
+      jobInDb.company = job.company;
+    }
+
+    if (job.location) {
+      jobInDb.location = job.location;
     }
 
     if (job.salary) {

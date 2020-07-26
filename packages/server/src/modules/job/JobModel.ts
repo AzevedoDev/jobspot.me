@@ -6,6 +6,17 @@ const Schema = new mongoose.Schema(
       type: String,
       description: 'Job Title',
       required: true,
+      index: true,
+    },
+    company: {
+      type: String,
+      description: 'Job description',
+      required: true,
+    },
+    location: {
+      type: String,
+      description: 'Job description',
+      required: true,
     },
     description: {
       type: String,
@@ -15,13 +26,11 @@ const Schema = new mongoose.Schema(
     seniority: {
       type: String,
       description: 'Job seniority (entry-level, junior, mid-level and senior)',
-      index: true,
       required: true,
     },
     salary: {
       type: Number,
       description: 'Job salary',
-      index: true,
       required: true,
     },
   },
@@ -34,11 +43,13 @@ const Schema = new mongoose.Schema(
   },
 );
 
-Schema.index({ seniority: 'text', salary: 'number' });
+Schema.index({ title: 'text' });
 
 export interface IJob extends Document {
   title: string;
   description: string;
+  location: string;
+  company: string;
   seniority: string;
   salary: number;
 }
