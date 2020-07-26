@@ -9,12 +9,12 @@ interface Props {
 }
 
 const JobModal: React.FC<Props> = ({ type }) => {
-  const { show, close } = useModal();
+  const { show } = useModal();
 
   const DynamicComponent = type === 'job-details' ? JobDetails : JobDetails;
 
   return (
-    <Wrapper show={show} onClick={() => close()}>
+    <Wrapper show={show}>
       <Content>
         <DynamicComponent />
       </Content>
