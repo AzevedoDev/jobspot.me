@@ -1,8 +1,9 @@
-import React from 'react';
+/* eslint-disable import/no-extraneous-dependencies */
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Location } from '@styled-icons/entypo/Location';
 
+import { Location } from '@styled-icons/entypo/Location';
+import { DeleteBin } from '@styled-icons/remix-line/DeleteBin';
 import Image from '../assets/JobImage.svg';
 import { useModal } from '../contexts/modalContext';
 
@@ -16,11 +17,20 @@ interface Props {
 const Job: React.FC = () => {
   const { open } = useModal();
 
+  const handleDelete = useCallback(() => {
+    // get the id of the job and commit the mutation
+  }, []);
+
   return (
     <Wrapper>
       <Content>
         <Title>
-          <img src={Image} alt="job" />
+          <div>
+            <DeleteButton type="button" onClick={handleDelete}>
+              <DeleteBin />
+            </DeleteButton>
+            <img src={Image} alt="job" />
+          </div>
           <h3>UX Lead and Researcher</h3>
         </Title>
 
@@ -64,6 +74,11 @@ const Content = styled.div`
 `;
 
 const Title = styled.div`
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
   img {
     width: 74px;
   }
@@ -71,6 +86,23 @@ const Title = styled.div`
   h3 {
     margin-top: 25px;
     font-weight: bold;
+  }
+`;
+
+const DeleteButton = styled.button`
+  width: 30px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  align-self: flex-end;
+
+  svg {
+    transition: fill 0.4s ease;
+    fill: #d1d2d6;
+
+    &:hover {
+      fill: #e43f3f;
+    }
   }
 `;
 
