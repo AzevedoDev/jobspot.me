@@ -10,12 +10,12 @@ const Schema = new mongoose.Schema(
     },
     company: {
       type: String,
-      description: 'Job description',
+      description: 'Job company',
       required: true,
     },
     location: {
       type: String,
-      description: 'Job description',
+      description: 'Job location',
       required: true,
     },
     description: {

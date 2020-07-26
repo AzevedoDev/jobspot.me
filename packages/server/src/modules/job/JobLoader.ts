@@ -18,6 +18,10 @@ export default class Job {
 
   description: string;
 
+  location: string;
+
+  company: string;
+
   seniority: string;
 
   salary: number;
@@ -27,6 +31,8 @@ export default class Job {
     this._id = data._id;
     this.title = data.title;
     this.description = data.description;
+    this.location = data.location;
+    this.company = data.company;
     this.salary = data.salary;
     this.seniority = data.seniority;
   }

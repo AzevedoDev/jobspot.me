@@ -30,11 +30,11 @@ const JobTypeConfig: ConfigType = {
     },
     location: {
       type: GraphQLString,
-      resolve: job => job.description,
+      resolve: job => job.location,
     },
     company: {
       type: GraphQLString,
-      resolve: job => job.description,
+      resolve: job => job.company,
     },
     seniority: {
       type: GraphQLString,
