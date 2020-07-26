@@ -1,8 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-
-3;
 const RelayCompilerWebpackPlugin = require('relay-compiler-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';

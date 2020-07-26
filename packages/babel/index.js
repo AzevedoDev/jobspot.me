@@ -1,5 +1,6 @@
 module.exports = {
   presets: [
+    '@babel/preset-react',
     [
       '@babel/preset-env',
       {
@@ -10,10 +11,11 @@ module.exports = {
     ],
     '@babel/preset-typescript',
   ],
-  plugins: [],
+  plugins: ['relay'],
   env: {
     test: {
       presets: [
+        '@babel/preset-react',
         ['@babel/preset-env', { targets: { node: 'current' } }],
         '@babel/preset-typescript',
       ],

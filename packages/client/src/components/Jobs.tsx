@@ -25,6 +25,38 @@ const Jobs: React.FC = () => {
   );
 };
 
+// const JobsFragment = createFragmentContainer(Jobs, {
+//   jobs: graphql`
+//     fragment Jobs_jobs on Query {
+//       jobs {
+//         edges {
+//           node {
+//             id
+//             _id
+//             title
+//           }
+//         }
+//       }
+//     }
+//   `,
+// });
+
+// const JobsQueryRenderer = createQueryRenderer(
+//   JobsFragment,
+//   {},
+//   {
+//     query: graphql`
+//       query JobsQuery {
+//         ...Jobs_jobs
+//       }
+//     `,
+//     getFragmentProps: props => {
+//       console.log('props', props);
+//       return { jobs: props };
+//     },
+//   },
+// );
+
 export default Jobs;
 
 const Wrapper = styled.section``;
