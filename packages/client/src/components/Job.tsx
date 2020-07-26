@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Location } from '@styled-icons/entypo/Location';
 
 import Image from '../assets/JobImage.svg';
+import { useModal } from '../contexts/modalContext';
 
 interface Props {
   jobId: string;
@@ -13,6 +14,8 @@ interface Props {
 }
 
 const Job: React.FC = () => {
+  const { open } = useModal();
+
   return (
     <Wrapper>
       <Content>
@@ -31,7 +34,9 @@ const Job: React.FC = () => {
       </Content>
 
       {/* This button should lead to the other page with the button id */}
-      <Button>See More</Button>
+      <Button type="button" onClick={() => open()}>
+        See More
+      </Button>
     </Wrapper>
   );
 };
