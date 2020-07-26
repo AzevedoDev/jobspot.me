@@ -1,6 +1,7 @@
 import fs from 'fs';
 
 const GRAPHQL_SCHEMA_FILE = './schemas/graphql/schema.graphql';
+const GRAPHQL_JSON_FILE = './schemas/graphql/schema.json';
 const DESTINATION = '../graphql';
 
 const copySchemaToPackage = (schemaFolderSrc, schemaFileDest) => {
@@ -17,6 +18,7 @@ const copySchemaToPackage = (schemaFolderSrc, schemaFileDest) => {
 const runScript = () => {
   // web, app
   copySchemaToPackage(GRAPHQL_SCHEMA_FILE, `${DESTINATION}/schema.graphql`);
+  copySchemaToPackage(GRAPHQL_JSON_FILE, `${DESTINATION}/schema.json`);
 };
 
 (() => {
