@@ -14,7 +14,7 @@ const JobModal: React.FC<Props> = ({ type }) => {
   const DynamicComponent = type === 'job-details' ? JobDetails : JobDetails;
 
   return (
-    <Wrapper show={show}>
+    <Wrapper show={show} onClick={() => close()}>
       <Content>
         <DynamicComponent />
       </Content>
