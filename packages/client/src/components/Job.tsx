@@ -19,7 +19,11 @@ const Job: React.FC<Props> = ({ job }) => {
 
   const handleDelete = useCallback(() => {
     // get the id of the job and commit the mutation
-  }, []);
+    open({
+      type: 'job-delete',
+      id: job._id,
+    });
+  }, [open, job._id]);
 
   return (
     <Wrapper>
