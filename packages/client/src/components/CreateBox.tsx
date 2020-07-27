@@ -27,6 +27,7 @@ const Wrapper = styled.button`
 
   padding: 0px 25px;
   margin-right: 25px;
+  outline: 0;
 
   p {
     font-weight: bold;
