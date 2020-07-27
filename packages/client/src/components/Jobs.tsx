@@ -17,7 +17,7 @@ const Jobs: React.FC<Props> = ({ data }) => {
     <Wrapper>
       <Description>
         <h2>Based on your profile and career interests</h2>
-        <small>Progamming / Any Location / Any Seniority</small>
+        <small>Programming / Any Location / Any Seniority</small>
       </Description>
 
       <List>

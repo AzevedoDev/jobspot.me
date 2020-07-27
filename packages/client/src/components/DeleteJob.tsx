@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { graphql } from 'react-relay';
 
+import { NodeDeleteConfig } from 'relay-runtime/lib/mutations/RelayDeclarativeMutationConfig';
 import { useModal } from '../contexts/modalContext';
 import commit from '../relay/commit';
 import { DeleteJobMutationResponse } from './__generated__/DeleteJobMutation.graphql';
@@ -45,9 +46,15 @@ const DeleteJob: React.FC<Props> = ({ id }) => {
     const variables = {
       data: { id },
     };
-    console.log('handleDelete -> variables', variables);
 
-    commit(DELETE_JOB_MUTATION, variables, onCompleted, onError);
+    const configs = [
+      {
+        type: 'NODE_DELETE',
+        deletedIDFieldName: 'id',
+      } as NodeDeleteConfig,
+    ];
+
+    commit(DELETE_JOB_MUTATION, variables, onCompleted, onError, configs);
   }, [id, onCompleted, onError]);
 
   return (

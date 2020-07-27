@@ -34,7 +34,9 @@ const JobDetails: React.FC<Props> = ({ data }) => {
         </small>
       </CompanyDetails>
 
-      <Description>{data.description}</Description>
+      <Description>
+        <p>{data.description}</p>
+      </Description>
 
       <strong>Salary: {data.salary} per month</strong>
 
@@ -107,6 +109,11 @@ const Description = styled.div`
   padding: 25px 0px;
   text-align: justify;
   line-height: 20px;
+  word-wrap: break-word;
+
+  p {
+    max-width: 900px;
+  }
 `;
 
 const ButtonsWrapper = styled.div`

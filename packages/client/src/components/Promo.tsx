@@ -11,7 +11,7 @@ const Promo: React.FC = () => (
       </IconWrapper>
 
       <Texts>
-        <h3>See jobs where you&aposd be a top applicant</h3>
+        <h3>See jobs where you&#39;d be a top applicant</h3>
         <small>Try free for 6 months</small>
       </Texts>
     </Informations>
