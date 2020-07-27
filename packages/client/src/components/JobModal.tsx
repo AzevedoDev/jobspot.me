@@ -21,7 +21,7 @@ const JobModal: React.FC = () => {
   if (modalData.type === 'job-details') {
     return (
       <ModalRenderer>
-        <JobDetails />
+        <JobDetails data={modalData.data} />
       </ModalRenderer>
     );
   }

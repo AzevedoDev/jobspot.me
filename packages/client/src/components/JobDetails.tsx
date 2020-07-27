@@ -5,8 +5,13 @@ import styled from 'styled-components';
 import { Location } from '@styled-icons/entypo/Location';
 import Image from '../assets/JobImage.svg';
 import { useModal } from '../contexts/modalContext';
+import { Job_job } from './__generated__/Job_job.graphql';
 
-const JobDetails: React.FC = () => {
+interface Props {
+  data: Job_job;
+}
+
+const JobDetails: React.FC<Props> = ({ data }) => {
   const { close } = useModal();
 
   const apply = useCallback(() => {
@@ -18,32 +23,20 @@ const JobDetails: React.FC = () => {
     <Wrapper>
       <Logo>
         <img src={Image} alt="Company Logo" />
-        <h1>Globex Corporation Pvt. Ltd</h1>
+        <h1>{data.company}</h1>
       </Logo>
 
       <CompanyDetails>
-        <p>Senior Javascript Developer</p>
+        <p>{data.title}</p>
         <small>
           <Location />
-          Los Angeles, California, USA
+          {data.location}
         </small>
       </CompanyDetails>
 
-      <Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-        laborum numquam, quaerat tempore distinctio error? Autem, delectus
-        beatae expedita placeat voluptas corrupti perferendis id laborum
-        distinctio amet? Perferendis, animi? Libero? Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates laborum numquam, quaerat
-        tempore distinctio error? Autem, delectus beatae expedita placeat
-        voluptas corrupti perferendis id laborum distinctio amet? Perferendis,
-        animi? Libero? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates laborum numquam, quaerat tempore distinctio error? Autem,
-        delectus beatae expedita placeat voluptas corrupti perferendis id
-        laborum distinctio amet? Perferendis, animi? Libero?
-      </Description>
+      <Description>{data.description}</Description>
 
-      <strong>Salary: R$ 5000,00 per month</strong>
+      <strong>Salary: {data.salary} per month</strong>
 
       <ButtonsWrapper>
         <ApplyButton type="button" onClick={() => apply()}>
@@ -62,6 +55,7 @@ export default JobDetails;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 900px;
 
   strong {
     font-size: 16px;
@@ -118,12 +112,12 @@ const Description = styled.div`
 const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 40%;
   justify-content: space-around;
   align-self: center;
+  width: 50%;
 
   button {
-    width: 220px;
+    width: 180px;
     height: 50px;
     border: 1px solid #f0f0f0;
     border-radius: 6px;

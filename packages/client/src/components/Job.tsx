@@ -25,6 +25,13 @@ const Job: React.FC<Props> = ({ job }) => {
     });
   }, [open, job._id]);
 
+  const handleOpen = useCallback(() => {
+    open({
+      type: 'job-details',
+      data: job,
+    });
+  }, [job, open]);
+
   return (
     <Wrapper>
       <Content>
@@ -48,7 +55,7 @@ const Job: React.FC<Props> = ({ job }) => {
       </Content>
 
       {/* This button should lead to the other page with the button id */}
-      <Button type="button" onClick={() => open()}>
+      <Button type="button" onClick={handleOpen}>
         See More
       </Button>
     </Wrapper>
@@ -64,6 +71,7 @@ const JobFrament = createFragmentContainer(Job, {
       location
       salary
       seniority
+      description
     }
   `,
 });
