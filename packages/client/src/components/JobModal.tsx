@@ -3,23 +3,38 @@ import styled from 'styled-components';
 
 import { useModal } from '../contexts/modalContext';
 import JobDetails from './JobDetails';
+import DeleteJob from './DeleteJob';
 
-interface Props {
-  type: 'job-details' | 'job-delete';
-}
-
-const JobModal: React.FC<Props> = ({ type }) => {
+const ModalRenderer: React.FC = ({ children }) => {
   const { show } = useModal();
-
-  const DynamicComponent = type === 'job-details' ? JobDetails : JobDetails;
 
   return (
     <Wrapper show={show}>
-      <Content>
-        <DynamicComponent />
-      </Content>
+      <Content>{children}</Content>
     </Wrapper>
   );
+};
+
+const JobModal: React.FC = () => {
+  const { modalData } = useModal();
+
+  if (modalData.type === 'job-details') {
+    return (
+      <ModalRenderer>
+        <JobDetails />
+      </ModalRenderer>
+    );
+  }
+
+  if (modalData.type === 'job-delete') {
+    return (
+      <ModalRenderer>
+        <DeleteJob id={modalData.id} />
+      </ModalRenderer>
+    );
+  }
+
+  return <></>;
 };
 
 export default JobModal;
@@ -42,7 +57,7 @@ const Wrapper = styled.div<WrapperProps>`
 const Content = styled.div`
   position: fixed;
   background: white;
-  width: 80%;
+  width: auto;
   height: auto;
   top: 50%;
   left: 50%;
