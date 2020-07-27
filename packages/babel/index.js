@@ -13,7 +13,7 @@ module.exports = {
     ],
     '@babel/preset-typescript',
   ],
-  plugins: ['relay'],
+  plugins: ['babel-plugin-styled-components', 'relay'],
   env: {
     test: {
       presets: [
