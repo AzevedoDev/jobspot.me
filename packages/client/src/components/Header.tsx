@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import Box from './Box';
 import Promo from './Promo';
+import CreateBox from './CreateBox';
 
 const Header: React.FC = () => (
   <Wrapper>
     <Boxes>
-      <Box />
-      <Box />
-      <Box />
+      <Box description="Job Offers" count={10} />
+      <CreateBox />
     </Boxes>
 
     <Promo />

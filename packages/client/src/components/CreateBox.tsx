@@ -1,32 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Flag } from '@styled-icons/entypo/Flag';
+import { AddToQueue } from '@styled-icons/boxicons-regular/AddToQueue';
 
-interface Props {
-  // Icon: string;
-  description: string;
-  count: number;
-}
-
-const Box: React.FC<Props> = ({ description, count }) => (
+const CreateBox: React.FC = () => (
   <Wrapper>
     <IconWrapper>
-      <Flag />
+      <AddToQueue />
     </IconWrapper>
 
-    <p>{description}</p>
-
-    <strong>{count}</strong>
+    <p>Create a job post</p>
   </Wrapper>
 );
 
-export default Box;
+export default CreateBox;
 
-const Wrapper = styled.div`
+const Wrapper = styled.button`
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   height: 100px;
   width: 290px;
@@ -45,6 +36,15 @@ const Wrapper = styled.div`
   strong {
     font-size: 22px;
   }
+
+  transition: transform 0.4s ease;
+
+  &:hover {
+    transform: translateX(10%);
+  }
+
+  &:active {
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -55,10 +55,8 @@ const IconWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: #ff6f37;
-
   svg {
-    fill: #fff;
+    fill: #ff6f37;
     width: 24px;
     height: 24px;
   }
