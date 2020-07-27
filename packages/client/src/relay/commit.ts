@@ -12,7 +12,7 @@ function commit(
   onError: (error: Error) => void,
 ) {
   const variables = {
-    data,
+    ...data,
   };
 
   return commitMutation(Environment, {
