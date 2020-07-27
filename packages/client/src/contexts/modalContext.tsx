@@ -11,7 +11,11 @@ interface JobDeletePayload {
   id: string;
 }
 
-type Payload = JobDetailsPayload | JobDeletePayload;
+interface CreateJobPayload {
+  type: 'job-create';
+}
+
+type Payload = JobDetailsPayload | JobDeletePayload | CreateJobPayload;
 
 interface ModalContextData {
   show: boolean;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useModal } from '../contexts/modalContext';
 import JobDetails from './JobDetails';
 import DeleteJob from './DeleteJob';
+import CreateJobPost from './CreateJobPost';
 
 const ModalRenderer: React.FC = ({ children }) => {
   const { show } = useModal();
@@ -30,6 +31,14 @@ const JobModal: React.FC = () => {
     return (
       <ModalRenderer>
         <DeleteJob id={modalData.id} />
+      </ModalRenderer>
+    );
+  }
+
+  if (modalData.type === 'job-create') {
+    return (
+      <ModalRenderer>
+        <CreateJobPost />
       </ModalRenderer>
     );
   }

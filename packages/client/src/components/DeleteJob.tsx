@@ -43,7 +43,7 @@ const DeleteJob: React.FC<Props> = ({ id }) => {
 
   const handleDelete = useCallback(() => {
     const variables = {
-      id,
+      data: { id },
     };
     console.log('handleDelete -> variables', variables);
 

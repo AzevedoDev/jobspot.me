@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { AddToQueue } from '@styled-icons/boxicons-regular/AddToQueue';
+import { useModal } from '../contexts/modalContext';
 
-const CreateBox: React.FC = () => (
-  <Wrapper>
-    <IconWrapper>
-      <AddToQueue />
-    </IconWrapper>
+const CreateBox: React.FC = () => {
+  const { open } = useModal();
 
-    <p>Create a job post</p>
-  </Wrapper>
-);
+  const handleCreate = useCallback(() => {
+    open({ type: 'job-create' });
+  }, [open]);
+
+  return (
+    <Wrapper onClick={handleCreate}>
+      <IconWrapper>
+        <AddToQueue />
+      </IconWrapper>
+
+      <p>Create a job post</p>
+    </Wrapper>
+  );
+};
 
 export default CreateBox;
 
