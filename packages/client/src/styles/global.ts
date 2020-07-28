@@ -60,7 +60,7 @@ export default createGlobalStyle`
     font-family: Yu Gothic UI;
   }
 
-  html, body {
+  html, body, #root {
   height: 100%;
 }
 
