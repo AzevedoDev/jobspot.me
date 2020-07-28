@@ -1,24 +1,24 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+
 import { graphql } from 'react-relay';
-
-import { NodeDeleteConfig } from 'relay-runtime/lib/mutations/RelayDeclarativeMutationConfig';
 import { useModal } from '../contexts/modalContext';
-import commit from '../relay/commit';
+import * as DeleteJobMutation from './mutations/DeleteJobMutation';
 import { DeleteJobMutationResponse } from './__generated__/DeleteJobMutation.graphql';
-
-export interface Props {
-  id: string;
-}
 
 const DELETE_JOB_MUTATION = graphql`
   mutation DeleteJobMutation($data: JobDeleteInput!) {
     JobDeleteMutation(input: $data) {
+      jobId
       success
       error
     }
   }
 `;
+
+export interface Props {
+  id: string;
+}
 
 const DeleteJob: React.FC<Props> = ({ id }) => {
   const { close } = useModal();
@@ -30,31 +30,26 @@ const DeleteJob: React.FC<Props> = ({ id }) => {
 
   const onCompleted = useCallback(
     ({ JobDeleteMutation }: DeleteJobMutationResponse) => {
+      close();
+
       if (JobDeleteMutation.error) {
         // eslint-disable-next-line no-alert
         alert(`Error to delete this job ${JobDeleteMutation.error}`);
       } else {
         // eslint-disable-next-line no-alert
         alert(JobDeleteMutation.success);
-        close();
       }
     },
     [close],
   );
 
   const handleDelete = useCallback(() => {
-    const variables = {
-      data: { id },
-    };
-
-    const configs = [
-      {
-        type: 'NODE_DELETE',
-        deletedIDFieldName: 'id',
-      } as NodeDeleteConfig,
-    ];
-
-    commit(DELETE_JOB_MUTATION, variables, onCompleted, onError, configs);
+    DeleteJobMutation.commit(
+      DELETE_JOB_MUTATION,
+      { data: { id } },
+      onCompleted,
+      onError,
+    );
   }, [id, onCompleted, onError]);
 
   return (

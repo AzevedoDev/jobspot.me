@@ -1,4 +1,4 @@
-import { mutationWithClientMutationId } from 'graphql-relay';
+import { mutationWithClientMutationId, toGlobalId } from 'graphql-relay';
 import { isValidObjectId } from 'mongoose';
 import { GraphQLNonNull, GraphQLString } from 'graphql';
 
@@ -36,11 +36,16 @@ export default mutationWithClientMutationId({
     await job.remove();
 
     return {
+      jobId: toGlobalId('Job', id),
       success: 'Job deleted!',
     };
   },
   outputFields: {
     ...errorField,
     ...successField,
+    jobId: {
+      type: GraphQLString,
+      resolve: ({ jobId }) => jobId,
+    },
   },
 });

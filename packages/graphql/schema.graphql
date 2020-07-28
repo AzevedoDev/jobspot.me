@@ -49,6 +49,7 @@ input JobDeleteInput {
 type JobDeletePayload {
   error: String
   success: String
+  jobId: String
   clientMutationId: String
 }
 

@@ -1,5 +1,9 @@
 import { commitMutation, GraphQLTaggedNode } from 'react-relay';
-import { PayloadError, DeclarativeMutationConfig } from 'relay-runtime';
+import {
+  PayloadError,
+  DeclarativeMutationConfig,
+  SelectorStoreUpdater,
+} from 'relay-runtime';
 import Environment from './Environment';
 
 function commit(
@@ -10,7 +14,8 @@ function commit(
     errors: readonly PayloadError[],
   ) => void,
   onError: (error: Error) => void,
-  configs?: DeclarativeMutationConfig[],
+  // configs?: DeclarativeMutationConfig[],
+  updater?: SelectorStoreUpdater,
 ) {
   const variables = {
     ...data,
@@ -21,7 +26,8 @@ function commit(
     variables,
     onCompleted,
     onError,
-    configs,
+    // configs,
+    updater,
   });
 }
 
