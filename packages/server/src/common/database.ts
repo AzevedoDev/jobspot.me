@@ -40,7 +40,6 @@ export default function connectDatabase() {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
-      dbName: 'jobspot',
     });
   });
 }
