@@ -1,7 +1,12 @@
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable @typescript-eslint/ban-types */
 import * as React from 'react';
-import { GraphQLTaggedNode, Variables, QueryRenderer } from 'react-relay';
+import {
+  GraphQLTaggedNode,
+  Variables,
+  QueryRenderer,
+  Container,
+} from 'react-relay';
 
 import Environment from './Environment';
 
@@ -14,7 +19,7 @@ type Config = {
 };
 
 export default function createQueryRenderer(
-  FragmentComponent: React.Component,
+  FragmentComponent: Container<any>,
   config: Config,
 ) {
   const { query, queriesParams, getFragmentProps } = config;

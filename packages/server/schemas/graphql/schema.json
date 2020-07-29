@@ -727,12 +727,12 @@
           "description": null,
           "fields": [
             {
-              "name": "job",
+              "name": "jobEdge",
               "description": null,
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "Job",
+                "name": "JobEdge",
                 "ofType": null
               },
               "isDeprecated": false,

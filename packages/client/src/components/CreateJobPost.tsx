@@ -1,22 +1,25 @@
-import React, { useState, useCallback, FormEvent, SyntheticEvent } from 'react';
+import React, { useState, useCallback, SyntheticEvent } from 'react';
 import styled from 'styled-components';
 import { graphql } from 'react-relay';
 import { useModal } from '../contexts/modalContext';
 
 import { CreateJobPostMutationResponse } from './__generated__/CreateJobPostMutation.graphql';
-import commit from '../relay/commit';
+import * as CreateJobMutation from './mutations/CreateJobMutation';
 
 const CREATE_JOB_MUTATION = graphql`
   mutation CreateJobPostMutation($input: JobAddInput!) {
     JobAddMutation(input: $input) {
-      job {
-        id
-        _id
-        title
-        description
-        seniority
-        location
-        salary
+      jobEdge {
+        cursor
+        node {
+          id
+          title
+          description
+          location
+          company
+          seniority
+          salary
+        }
       }
       success
       error
@@ -67,7 +70,12 @@ const CreateJobPost = () => {
         },
       };
 
-      commit(CREATE_JOB_MUTATION, variables, onCompleted, onError);
+      CreateJobMutation.commit(
+        CREATE_JOB_MUTATION,
+        variables,
+        onCompleted,
+        onError,
+      );
     },
     [
       title,

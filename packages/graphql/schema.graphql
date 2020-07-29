@@ -26,7 +26,7 @@ input JobAddInput {
 }
 
 type JobAddPayload {
-  job: Job
+  jobEdge: JobEdge
   error: String
   success: String
   clientMutationId: String

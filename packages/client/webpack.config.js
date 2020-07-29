@@ -6,7 +6,7 @@ const Serve = require('webpack-plugin-serve');
 const dotEnv = require('dotenv-webpack');
 const HappyPack = require('happypack');
 
-const PORT = process.env.PORT || 4002;
+const PORT = process.env.PORT || 4001;
 const cwd = process.cwd();
 
 const outputPath = path.join(cwd, 'build');
