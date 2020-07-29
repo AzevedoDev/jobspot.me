@@ -29,10 +29,12 @@ const Main = styled.div`
   flex-direction: column;
   flex: 1;
   padding-bottom: 50px;
+  height: 100%;
 `;
 
 const Content = styled.div`
   margin-left: 25px;
+  height: 100%;
 `;
 
 export default Layout;

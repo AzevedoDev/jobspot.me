@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import { createFragmentContainer, graphql } from 'react-relay';
 
 import { Location } from '@styled-icons/entypo/Location';
 import { DeleteBin } from '@styled-icons/remix-line/DeleteBin';
-import { createFragmentContainer, graphql } from 'react-relay';
 import Image from '../assets/JobImage.svg';
 import { useModal } from '../contexts/modalContext';
 

@@ -727,12 +727,12 @@
           "description": null,
           "fields": [
             {
-              "name": "job",
+              "name": "jobEdge",
               "description": null,
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "Job",
+                "name": "JobEdge",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -1013,6 +1013,18 @@
             },
             {
               "name": "success",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "jobId",
               "description": null,
               "args": [],
               "type": {

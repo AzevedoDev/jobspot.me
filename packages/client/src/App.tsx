@@ -6,6 +6,8 @@ import Jobs from './components/Jobs';
 import ContextProvider from './contexts';
 import JobModal from './components/JobModal';
 
+console.log('PROCESS.ENV', process.env.PORT);
+
 const App: React.FC = () => {
   return (
     <ContextProvider>

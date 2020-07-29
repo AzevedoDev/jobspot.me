@@ -1,10 +1,10 @@
-import { mutationWithClientMutationId } from 'graphql-relay';
+import { mutationWithClientMutationId, toGlobalId } from 'graphql-relay';
 import { GraphQLNonNull, GraphQLString, GraphQLInt } from 'graphql';
 
 import { errorField, successField } from '../../../common/outputFields';
 
 import Job from '../JobModel';
-import JobType from '../JobType';
+import { JobConnection } from '../JobType';
 import * as JobLoader from '../JobLoader';
 
 interface JobAddArgs {
@@ -57,9 +57,20 @@ export default mutationWithClientMutationId({
     };
   },
   outputFields: {
-    job: {
-      type: JobType,
-      resolve: async ({ id }, _, context) => JobLoader.load(context, id),
+    jobEdge: {
+      type: JobConnection.edgeType,
+      resolve: async ({ id }, _, context) => {
+        const job = await JobLoader.load(context, id);
+
+        if (!job) {
+          return job;
+        }
+
+        return {
+          cursor: toGlobalId('Job', job._id),
+          node: job,
+        };
+      },
     },
     ...errorField,
     ...successField,

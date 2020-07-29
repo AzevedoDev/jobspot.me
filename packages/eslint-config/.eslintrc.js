@@ -30,7 +30,8 @@ module.exports = {
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/no-var-requires": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "no-plusplus": "off"
   },
   settings: {
     "import/resolver": {

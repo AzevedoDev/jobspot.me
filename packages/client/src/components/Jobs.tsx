@@ -17,19 +17,21 @@ const Jobs: React.FC<Props> = ({ data }) => {
     <Wrapper>
       <Description>
         <h2>Based on your profile and career interests</h2>
-        <small>Progamming / Any Location / Any Seniority</small>
+        <small>Programming / Any Location / Any Seniority</small>
       </Description>
 
       <List>
         {jobs.map(({ node }) => (
           <Job key={node.id} job={node} />
         ))}
+
+        {!jobs.length && <p>No jobs to see</p>}
       </List>
     </Wrapper>
   );
 };
 
-const JobsFragment = createFragmentContainer(Jobs, {
+const JobsFragment = createFragmentContainer<Props>(Jobs, {
   data: graphql`
     fragment Jobs_data on Query {
       jobs {
@@ -59,7 +61,9 @@ const JobsQueryRenderer = createQueryRenderer(JobsFragment, {
 
 export default JobsQueryRenderer;
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+  /* padding-bottom: 100px; */
+`;
 
 const Description = styled.div`
   display: flex;
