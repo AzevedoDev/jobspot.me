@@ -1,10 +1,5 @@
 import { commitMutation, GraphQLTaggedNode } from 'react-relay';
-import {
-  PayloadError,
-  // DeclarativeMutationConfig,
-  SelectorStoreUpdater,
-  graphql,
-} from 'relay-runtime';
+import { PayloadError } from 'relay-runtime';
 import Environment from '../../relay/Environment';
 import { DeleteJobMutationVariables } from '../__generated__/DeleteJobMutation.graphql';
 
