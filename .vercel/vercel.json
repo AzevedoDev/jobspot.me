@@ -1,0 +1,17 @@
+  
+{
+  "version": 2,
+  "scope": "jobstop",
+  "alias": ["jobspot.now.sh"],
+  "builds": [
+    {
+      "src": "/packages/server/dist/app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "MONGO_URL": "@mongo_url",
+    "SECRET": "@secret"
+  }
+}

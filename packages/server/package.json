@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
+    "build": "babel src --extensions \".es6,.js,.es,.jsx,.mjs,.ts,.tsx\" --out-dir dist --copy-files --source-maps --verbose && cp .env.example dist/.env",
     "dev": "ts-node-dev --inspect --transpile-only --ignore node_modules src/app.ts",
     "copy-to-package": "babel-node --extensions \".es6,.js,.jsx,.ts,.tsx\" scripts/copySchemaToPackage.js",
     "update-schema": "babel-node --extensions \".es6,.js,.jsx,.ts,.tsx\" scripts/updateSchema.js && yarn copy-to-package"
@@ -10,7 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "@entria/graphql-mongoose-loader": "^4.3.2",
-    "@jobspot/babel": "*",
     "@koa/cors": "^3.1.0",
     "bcryptjs": "^2.4.3",
     "dataloader": "^2.0.0",
@@ -25,6 +25,7 @@
     "mongoose": "^5.9.25"
   },
   "devDependencies": {
+    "@jobspot/babel": "*",
     "@babel/core": "^7.10.5",
     "@types/bcryptjs": "^2.4.2",
     "@types/dotenv-safe": "^8.1.0",
