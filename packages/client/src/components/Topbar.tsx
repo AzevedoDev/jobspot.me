@@ -17,10 +17,10 @@ const Topbar: React.FC = () => {
   return (
     <Wrapper>
       <InputWrapper>
-        <IconWrapper>
+        {/* <IconWrapper>
           <SearchAlt />
-        </IconWrapper>
-        <input
+        </IconWrapper> */}
+        {/* <input
           type="text"
           placeholder="Search a job"
           value={text}
@@ -29,7 +29,9 @@ const Topbar: React.FC = () => {
 
         <button type="button" onClick={triggerSearch}>
           Search
-        </button>
+        </button> */}
+
+        <h1>Welcome to Jobspot.me | Find programming jobs near you</h1>
       </InputWrapper>
     </Wrapper>
   );
