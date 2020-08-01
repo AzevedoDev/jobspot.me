@@ -1,18 +1,21 @@
-  
 {
   "version": 2,
   "scope": "jobspot-me",
-  "alias": ["jobspot-me.vercel.app"],
+  "alias": [
+      "jobspot-me.vercel.app"
+  ],
   "builds": [
     {
       "src": "/packages/server/dist/app.js",
       "use": "@vercel/node"
     }
   ],
-  "routes": [{
-    "src": "/.",
-    "dest": "/packages/server/dist/app.js"
-  }],
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/packages/server/dist/app.js"
+    }
+  ],
   "env": {
     "NODE_ENV": "development",
     "MONGO_URL": "@mongo_url",
