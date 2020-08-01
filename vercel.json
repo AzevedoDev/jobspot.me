@@ -17,7 +17,7 @@
     }
   ],
   "env": {
-    "NODE_ENV": "development",
+    "NODE_ENV": "production",
     "MONGO_URL": "@mongo_url",
     "SECRET": "@secret"
   }
