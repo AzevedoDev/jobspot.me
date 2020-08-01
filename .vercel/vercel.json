@@ -1,8 +1,8 @@
   
 {
   "version": 2,
-  "scope": "jobstop",
-  "alias": ["jobspot.now.sh"],
+  "scope": "jobspot-me",
+  "alias": ["jobspot-me.vercel.app"],
   "builds": [
     {
       "src": "/packages/server/dist/app.js",
