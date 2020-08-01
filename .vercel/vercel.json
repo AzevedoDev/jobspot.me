@@ -14,7 +14,7 @@
     "dest": "/packages/server/dist/app.js"
   }],
   "env": {
-    "NODE_ENV": "production",
+    "NODE_ENV": "development",
     "MONGO_URL": "@mongo_url",
     "SECRET": "@secret"
   }
