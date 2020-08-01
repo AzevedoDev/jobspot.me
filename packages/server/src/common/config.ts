@@ -7,7 +7,7 @@ const cwd = process.cwd();
 const root = path.join.bind(cwd);
 
 dotenvSafe.config({
-  allowEmptyValues: false,
+  allowEmptyValues: process.env.NODE_ENV !== 'production',
   path: root('.env'),
   sample: root('.env.example'),
 });
