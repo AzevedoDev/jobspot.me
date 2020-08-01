@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "build": "babel src --extensions \".es6,.js,.es,.jsx,.mjs,.ts,.tsx\" --out-dir dist --copy-files --source-maps --verbose && cp .env.example dist/.env",
+    "build": "babel src --extensions \".es6,.js,.es,.jsx,.mjs,.ts,.tsx\" --out-dir dist --copy-files --source-maps --verbose",
+    "postbuild": "cp .env.example dist/.env.example",
     "dev": "ts-node-dev --inspect --transpile-only --ignore node_modules src/app.ts",
     "copy-to-package": "babel-node --extensions \".es6,.js,.jsx,.ts,.tsx\" scripts/copySchemaToPackage.js",
     "update-schema": "babel-node --extensions \".es6,.js,.jsx,.ts,.tsx\" scripts/updateSchema.js && yarn copy-to-package"
