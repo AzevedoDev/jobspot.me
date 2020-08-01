@@ -9,6 +9,10 @@
       "use": "@vercel/node"
     }
   ],
+  "routes": [{
+    "src": "/.",
+    "dest": "/packages/server/dist/app.js"
+  }],
   "env": {
     "NODE_ENV": "production",
     "MONGO_URL": "@mongo_url",
