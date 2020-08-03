@@ -11,7 +11,7 @@ const Layout: React.FC = ({ children }) => {
       <Main>
         <Topbar />
         <Header />
-        {/* <Content>{children}</Content> */}
+        <Content>{children}</Content>
       </Main>
     </Wrapper>
   );
